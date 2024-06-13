@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('menu_user', function (Blueprint $table) {
             $table->id('id_setting');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('user_id');
             $table->string('id_menu', 3);
             $table->string('create_date', 30);
             $table->timestamp('create_time')->useCurrent();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('update_date')->useCurrent();
             $table->timestamps();
 
-           $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_menu')->references('id_menu')->on('menus')->onDelete('cascade');
         });
     }

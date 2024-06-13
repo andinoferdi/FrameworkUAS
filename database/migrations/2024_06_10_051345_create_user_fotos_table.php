@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('user_foto', function (Blueprint $table) {
             $table->id('no_foto');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('user_id');
             $table->string('foto', 200);
             $table->timestamp('create_date')->useCurrent();
             $table->string('delete_mark', 1)->default('N');
             $table->timestamps();
 
-             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+              $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

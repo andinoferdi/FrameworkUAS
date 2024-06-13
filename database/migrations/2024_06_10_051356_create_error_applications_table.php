@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('error_application', function (Blueprint $table) {
             $table->id('error_id');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('user_id');
             $table->string('module', 100);
             $table->string('controller', 100);
             $table->string('function', 100);
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('delete_mark', 1)->default('N');
             $table->timestamps();
 
-        $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

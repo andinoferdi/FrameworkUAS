@@ -23,3 +23,22 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('dashboard');
+
+    Route::get('/dashboard/master/satuan', [SatuanController::class, 'index'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan');
+    Route::get('/dashboard/master/satuan/create', [SatuanController::class, 'create'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan.create');
+Route::post('/dashboard/master/satuan', [SatuanController::class, 'store'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan.store');
+Route::get('/dashboard/master/satuan/{satuan}/edit', [SatuanController::class, 'edit'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan.edit');
+Route::put('/dashboard/master/satuan/{satuan}', [SatuanController::class, 'update'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan.update');
+Route::delete('/dashboard/master/satuan/{satuan}', [SatuanController::class, 'destroy'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('satuan.destroy');
